@@ -9,7 +9,10 @@ import { Book } from './interface';
 })
 export class LibraryComponent implements OnInit {
   books: Book[];
-  bookData: Book[];
+  bookData: Book;
+  modalTitle: string;
+  buttonTitle: string;
+  action: string;
 
   constructor(private librarySrv: LibraryService) { }
 
@@ -17,7 +20,27 @@ export class LibraryComponent implements OnInit {
     this.books = this.librarySrv.getBooks();
   }
 
-  editBookData(book: Book[]) {
-    this.bookData = book;
+  openEditModal(book: Book) {
+    this.bookData = Object.assign({}, book);
+    this.modalTitle = 'Edit book';
+    this.buttonTitle = 'Save changes';
+    this.action = 'edit';
+  }
+
+  openCreateModal() {
+    this.bookData = Object.assign({}, {
+      id: this.books.length + 1,
+      title: '',
+      author: '',
+      publisher: ''
+    });
+    this.modalTitle = 'New book';
+    this.buttonTitle = 'Create new book';
+    this.action = 'create';
+  }
+
+  createOrUpdateBook(event: Book) {
+    console.log(event);
+    // TODO: separate create and update
   }
 }

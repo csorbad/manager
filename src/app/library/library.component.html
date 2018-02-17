@@ -1,3 +1,7 @@
+<button type="button" class="btn btn-outline-info" data-toggle="modal" data-target="#library-modal" (click)="openCreateModal()">
+  <i class="fa fa-plus"></i>
+  <i class="fa fa-book"></i>
+</button>
 <table class="table">
   <thead class="thead">
   <tr>
@@ -15,8 +19,8 @@
     <td>{{ book.author }}</td>
     <td>{{ book.publisher }}</td>
     <td>
-      <i class="fa fa-edit" data-toggle="modal" data-target="#library-edit-modal" (click)="editBookData(book)"></i></td>
+      <i class="fa fa-edit" data-toggle="modal" data-target="#library-modal" (click)="openEditModal(book)"></i></td>
   </tr>
   </tbody>
 </table>
-<app-library-modal [bookData]="bookData"></app-library-modal>
+<app-library-modal [bookData]="bookData" [modalTitle]="modalTitle" [buttonTitle]="buttonTitle" [action]="action" (saveBook)="createOrUpdateBook($event)"></app-library-modal>
