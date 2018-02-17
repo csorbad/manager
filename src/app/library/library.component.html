@@ -7,24 +7,12 @@
       <th scope="col">Publisher</th>
     </tr>
   </thead>
-  <tbody>
-    <tr>
+  <tbody *ngIf="books.length">
+    <tr *ngFor="let book of books">
       <th scope="row">1</th>
-      <td>Az Éhezők Viadala</td>
-      <td>Suzanne Collins</td>
-      <td>Agave Könyvek Kiadó Kft.</td>
-    </tr>
-    <tr>
-      <th scope="row">2</th>
-      <td>Futótűz</td>
-      <td>Suzanne Collins</td>
-      <td>Agave Könyvek Kiadó Kft.</td>
-    </tr>
-    <tr>
-      <th scope="row">3</th>
-      <td>A kiválasztott</td>
-      <td>Suzanne Collins</td>
-      <td>Agave Könyvek Kiadó Kft.</td>
+      <td>{{ book.title }}</td>
+      <td>{{ book.author }}</td>
+      <td>{{ book.publisher }}</td>
     </tr>
   </tbody>
 </table>

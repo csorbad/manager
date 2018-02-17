@@ -8,7 +8,7 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { HomeComponent } from './home/home.component';
 import { LibraryComponent } from './library/library.component';
 import { FinanceComponent } from './finance/finance.component';
-
+import { LibraryService } from './library/library.service';
 
 @NgModule({
   declarations: [
@@ -22,7 +22,9 @@ import { FinanceComponent } from './finance/finance.component';
     BrowserModule,
     RouterModule.forRoot(AppRoutes),
   ],
-  providers: [],
+  providers: [
+    LibraryService,
+  ],
   bootstrap: [AppComponent],
 })
 export class AppModule { }
