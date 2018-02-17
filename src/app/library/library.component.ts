@@ -9,6 +9,7 @@ import { Book } from './interface';
 })
 export class LibraryComponent implements OnInit {
   books: Book[];
+  bookData: Book[];
 
   constructor(private librarySrv: LibraryService) { }
 
@@ -16,4 +17,7 @@ export class LibraryComponent implements OnInit {
     this.books = this.librarySrv.getBooks();
   }
 
+  editBookData(book: Book[]) {
+    this.bookData = book;
+  }
 }
