@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { LibraryService } from './library.service';
 import { Book } from './interface';
+import { UUID } from 'angular2-uuid';
 
 @Component({
   selector: 'app-library',
@@ -36,7 +37,7 @@ export class LibraryComponent implements OnInit {
 
   openCreateModal() {
     this.bookData = Object.assign({}, {
-      id: this.books.length + 1,
+      id: UUID.UUID(),
       title: '',
       author: '',
       publisher: ''

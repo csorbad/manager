@@ -14,8 +14,8 @@
   </tr>
   </thead>
   <tbody *ngIf="books.length">
-  <tr *ngFor="let book of books">
-    <td scope="row">{{ book.id }}</td>
+  <tr *ngFor="let book of books; let idx = index">
+    <td scope="row">{{ idx + 1 }}</td>
     <td>{{ book.title }}</td>
     <td>{{ book.author }}</td>
     <td>{{ book.publisher }}</td>
