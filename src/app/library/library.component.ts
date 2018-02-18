@@ -63,4 +63,8 @@ export class LibraryComponent implements OnInit {
       });
     }
   }
+
+  deleteBook(bookData) {
+    this.books = this.books.filter((book) => bookData.id !== book.id);
+  }
 }

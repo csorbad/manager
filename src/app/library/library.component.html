@@ -10,6 +10,7 @@
     <th scope="col">Author</th>
     <th scope="col">Publisher</th>
     <th>Edit</th>
+    <th>Delete</th>
   </tr>
   </thead>
   <tbody *ngIf="books.length">
@@ -18,8 +19,8 @@
     <td>{{ book.title }}</td>
     <td>{{ book.author }}</td>
     <td>{{ book.publisher }}</td>
-    <td>
-      <i class="fa fa-edit" data-toggle="modal" data-target="#library-modal" (click)="openEditModal(book)"></i></td>
+    <td><i class="fa fa-edit" data-toggle="modal" data-target="#library-modal" (click)="openEditModal(book)"></i></td>
+    <td><i class="fa fa-trash-o" (click)="deleteBook(book)"></i></td>
   </tr>
   </tbody>
 </table>
