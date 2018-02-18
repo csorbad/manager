@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, Output, EventEmitter} from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { Book } from '../interface';
 
 @Component({
@@ -18,6 +18,5 @@ export class LibraryModalComponent implements OnInit {
 
   bookActionHandler() {
     this.saveBook.emit({book: this.bookData, action: this.action});
-    // TODO: close modal window
   }
 }

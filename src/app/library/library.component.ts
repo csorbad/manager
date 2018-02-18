@@ -8,6 +8,13 @@ import { Book } from './interface';
   styleUrls: ['./library.component.css']
 })
 export class LibraryComponent implements OnInit {
+  private readonly CREATE = 'create';
+  private readonly EDIT = 'edit';
+  private readonly EDIT_BOOK = 'Edit book';
+  private readonly NEW_BOOK = 'New book';
+  private readonly SAVE_CHANGES = 'Save changes';
+  private readonly CREATE_NEW_BOOK = 'Create new book';
+
   books: Book[];
   bookData: Book;
   modalTitle: string;
@@ -22,9 +29,9 @@ export class LibraryComponent implements OnInit {
 
   openEditModal(book: Book) {
     this.bookData = Object.assign({}, book);
-    this.modalTitle = 'Edit book';
-    this.buttonTitle = 'Save changes';
-    this.action = 'edit';
+    this.modalTitle = this.EDIT_BOOK;
+    this.buttonTitle = this.SAVE_CHANGES;
+    this.action = this.EDIT;
   }
 
   openCreateModal() {
@@ -34,13 +41,26 @@ export class LibraryComponent implements OnInit {
       author: '',
       publisher: ''
     });
-    this.modalTitle = 'New book';
-    this.buttonTitle = 'Create new book';
-    this.action = 'create';
+    this.modalTitle = this.NEW_BOOK;
+    this.buttonTitle = this.CREATE_NEW_BOOK;
+    this.action = this.CREATE;
   }
 
-  createOrUpdateBook(event: Book) {
-    console.log(event);
-    // TODO: separate create and update
+  createOrUpdateBook(event) {
+    const bookData = event['book'];
+
+    if (this.CREATE === event['action']) {
+      this.books.push(bookData);
+    }
+
+    if (this.EDIT === event['action']) {
+      this.books.map((book) => {
+        if (book.id === bookData.id) {
+          Object.assign(book, bookData);
+        }
+
+        return book;
+      });
+    }
   }
 }
