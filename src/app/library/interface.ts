@@ -3,5 +3,10 @@ export interface Book {
   title: string;
   author: string;
   publisher: string;
-  year?: Date;
+  year?: string;
+  description?: string;
+  isbn?: string;
+  series?: string;
+  img?: string;
+  cover?: string;
 }

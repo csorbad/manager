@@ -1,0 +1,15 @@
+.book-img img{
+  max-height: 300px;
+}
+
+.info-modal-dialog {
+  max-width: 600px;
+}
+
+.justify-text {
+  text-align: justify;
+}
+
+.padding-top-10 {
+  padding-top: 10px;
+}

@@ -12,6 +12,7 @@ import { FinanceComponent } from './finance/finance.component';
 import { LibraryComponent } from './library/library.component';
 import { LibraryService } from './library/library.service';
 import { LibraryModalComponent } from './library/library.modal/library.modal.component';
+import { LibraryInfoComponent } from './library/library.info/library.info.component';
 
 import { Angular2FontawesomeModule } from 'angular2-fontawesome/angular2-fontawesome';
 
@@ -22,6 +23,7 @@ import { Angular2FontawesomeModule } from 'angular2-fontawesome/angular2-fontawe
     HomeComponent,
     LibraryComponent,
     LibraryModalComponent,
+    LibraryInfoComponent,
     FinanceComponent,
   ],
   imports: [
