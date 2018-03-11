@@ -1,0 +1,11 @@
+.pointer {
+  cursor: pointer;
+}
+
+.margin-right-15 {
+  margin-right: 15px;
+}
+
+.active {
+  text-decoration: underline;
+}

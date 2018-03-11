@@ -1,0 +1,24 @@
+{
+  "Home": "Home",
+  "Finance": "Finance",
+  "Medical": "Medical examinations",
+  "Library": {
+    "Name": "Library",
+    "Title": "Title",
+    "Author": "Author",
+    "Publisher": "Publisher",
+    "Info": "Info",
+    "Edit": "Edit",
+    "Delete": "Delete",
+    "Series": "Series",
+    "Year": "Year of publication",
+    "Cover": "Cover",
+    "ISBN": "ISBN",
+    "Cancel": "Cancel",
+    "Edit_Book": "Edit book",
+    "New_book": "New book",
+    "Save_changes": "Save changes",
+    "Create_new_book": "Create new book"
+  },
+  "Links": "Useful links"
+}

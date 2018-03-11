@@ -6,12 +6,12 @@
   <thead class="thead">
   <tr>
     <th scope="col">#</th>
-    <th scope="col">Title</th>
-    <th scope="col">Author</th>
-    <th scope="col">Publisher</th>
-    <th>Info</th>
-    <th>Edit</th>
-    <th>Delete</th>
+    <th scope="col">{{ 'Library.Title' | translate }}</th>
+    <th scope="col">{{ 'Library.Author' | translate }}</th>
+    <th scope="col">{{ 'Library.Publisher' | translate }}</th>
+    <th class="text-center">{{ 'Library.Info' | translate }}</th>
+    <th class="text-center">{{ 'Library.Edit' | translate }}</th>
+    <th class="text-center">{{ 'Library.Delete' | translate }}</th>
   </tr>
   </thead>
   <tbody *ngIf="books.length">
@@ -20,9 +20,9 @@
     <td>{{ book.title }}</td>
     <td>{{ book.author }}</td>
     <td>{{ book.publisher }}</td>
-    <td><i class="fa fa-eye" data-toggle="modal" data-target="#info-modal" (click)="showBookInfo(book)"></i></td>
-    <td><i class="fa fa-edit" data-toggle="modal" data-target="#library-modal" (click)="openEditModal(book)"></i></td>
-    <td><i class="fa fa-trash-o" (click)="deleteBook(book)"></i></td>
+    <td class="text-center"><i class="fa fa-eye" data-toggle="modal" data-target="#info-modal" (click)="showBookInfo(book)"></i></td>
+    <td class="text-center"><i class="fa fa-edit" data-toggle="modal" data-target="#library-modal" (click)="openEditModal(book)"></i></td>
+    <td class="text-center"><i class="fa fa-trash-o" (click)="deleteBook(book)"></i></td>
   </tr>
   </tbody>
 </table>

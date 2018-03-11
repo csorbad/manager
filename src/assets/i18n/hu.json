@@ -1,0 +1,24 @@
+{
+  "Home": "Főoldal",
+  "Finance": "Pénzügyek",
+  "Medical": "Orvosi vizsgálatok",
+  "Library": {
+    "Name": "Könyvtár",
+    "Title": "Cím",
+    "Author": "Szerző",
+    "Publisher": "Kiadó",
+    "Info": "Infó",
+    "Edit": "Szerkesztés",
+    "Delete": "Törlés",
+    "Series": "Sorozat",
+    "Year": "Kiadás éve",
+    "Cover": "Kötés",
+    "ISBN": "ISBN",
+    "Cancel": "Mégsem",
+    "Edit_Book": "Könyv szerkesztése",
+    "New_book": "Új könyv",
+    "Save_changes": "Módosítások mentése",
+    "Create_new_book": "Új könyv létrehozása"
+  },
+  "Links": "Hasznos linkek"
+}

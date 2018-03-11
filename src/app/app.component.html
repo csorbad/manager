@@ -1,4 +1,8 @@
 <app-navbar></app-navbar>
+<div class="localization pull-right margin-right-15">
+  <i [ngClass]="{'active':activeLang === 'en'}" class="pointer" (click)="setLanguage('en')">en</i>
+  <i [ngClass]="{'active':activeLang === 'hu'}" class="pointer" (click)="setLanguage('hu')">hu</i>
+</div>
 <div class="container">
     <router-outlet></router-outlet>
 </div>

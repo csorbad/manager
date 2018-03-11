@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { LibraryService } from './library.service';
 import { Book } from './interface';
 import { UUID } from 'angular2-uuid';
+import {TranslateService} from '@ngx-translate/core';
 
 @Component({
   selector: 'app-library',
@@ -11,18 +12,14 @@ import { UUID } from 'angular2-uuid';
 export class LibraryComponent implements OnInit {
   private readonly CREATE = 'create';
   private readonly EDIT = 'edit';
-  private readonly EDIT_BOOK = 'Edit book';
-  private readonly NEW_BOOK = 'New book';
-  private readonly SAVE_CHANGES = 'Save changes';
-  private readonly CREATE_NEW_BOOK = 'Create new book';
 
   books: Book[];
   bookData: Book;
-  modalTitle: string;
-  buttonTitle: string;
+  modalTitle: any;
+  buttonTitle: any;
   action: string;
 
-  constructor(private librarySrv: LibraryService) { }
+  constructor(private librarySrv: LibraryService, private translate: TranslateService) { }
 
   ngOnInit() {
     this.books = this.librarySrv.getBooks();
@@ -30,9 +27,14 @@ export class LibraryComponent implements OnInit {
 
   openEditModal(book: Book) {
     this.bookData = Object.assign({}, book);
-    this.modalTitle = this.EDIT_BOOK;
-    this.buttonTitle = this.SAVE_CHANGES;
     this.action = this.EDIT;
+
+    this.translate.get('Library.Edit_Book').subscribe((modalTitle: string) => {
+      this.modalTitle = modalTitle;
+    });
+    this.translate.get('Library.Save_changes').subscribe((buttonTitle: string) => {
+      this.buttonTitle = buttonTitle;
+    });
   }
 
   openCreateModal() {
@@ -42,8 +44,14 @@ export class LibraryComponent implements OnInit {
       author: '',
       publisher: ''
     });
-    this.modalTitle = this.NEW_BOOK;
-    this.buttonTitle = this.CREATE_NEW_BOOK;
+
+    this.translate.get('Library.New_book').subscribe((modalTitle: string) => {
+      this.modalTitle = modalTitle;
+    });
+    this.translate.get('Library.Create_new_book').subscribe((buttonTitle: string) => {
+      this.buttonTitle = buttonTitle;
+    });
+
     this.action = this.CREATE;
   }
 

@@ -16,6 +16,14 @@ import { LibraryInfoComponent } from './library/library.info/library.info.compon
 
 import { Angular2FontawesomeModule } from 'angular2-fontawesome/angular2-fontawesome';
 
+import {HttpClientModule, HttpClient} from '@angular/common/http';
+import {TranslateModule, TranslateLoader} from '@ngx-translate/core';
+import {TranslateHttpLoader} from '@ngx-translate/http-loader';
+
+export function HttpLoaderFactory(http: HttpClient) {
+  return new TranslateHttpLoader(http);
+}
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -30,6 +38,14 @@ import { Angular2FontawesomeModule } from 'angular2-fontawesome/angular2-fontawe
     BrowserModule,
     FormsModule,
     Angular2FontawesomeModule,
+    HttpClientModule,
+    TranslateModule.forRoot({
+      loader: {
+        provide: TranslateLoader,
+        useFactory: HttpLoaderFactory,
+        deps: [HttpClient]
+      }
+    }),
     RouterModule.forRoot(AppRoutes),
   ],
   providers: [
