@@ -28,13 +28,8 @@ export class LibraryComponent implements OnInit {
   openEditModal(book: Book) {
     this.bookData = Object.assign({}, book);
     this.action = this.EDIT;
-
-    this.translate.get('Library.Edit_Book').subscribe((modalTitle: string) => {
-      this.modalTitle = modalTitle;
-    });
-    this.translate.get('Library.Save_changes').subscribe((buttonTitle: string) => {
-      this.buttonTitle = buttonTitle;
-    });
+    this.modalTitle = this.translate.instant('Library.Edit_Book');
+    this.buttonTitle = this.translate.instant('Library.Save_changes');
   }
 
   openCreateModal() {
@@ -44,14 +39,8 @@ export class LibraryComponent implements OnInit {
       author: '',
       publisher: ''
     });
-
-    this.translate.get('Library.New_book').subscribe((modalTitle: string) => {
-      this.modalTitle = modalTitle;
-    });
-    this.translate.get('Library.Create_new_book').subscribe((buttonTitle: string) => {
-      this.buttonTitle = buttonTitle;
-    });
-
+    this.modalTitle = this.translate.instant('Library.New_book');
+    this.buttonTitle = this.translate.instant('Library.Create_new_book');
     this.action = this.CREATE;
   }
 
