@@ -29,7 +29,7 @@ export class LibraryComponent implements OnInit {
     this.bookData = Object.assign({}, book);
     this.action = this.EDIT;
     this.modalTitle = this.translate.instant('Library.Edit_Book');
-    this.buttonTitle = this.translate.instant('Library.Save_changes');
+    this.buttonTitle = this.translate.instant('Save');
   }
 
   openCreateModal() {
@@ -40,7 +40,7 @@ export class LibraryComponent implements OnInit {
       publisher: ''
     });
     this.modalTitle = this.translate.instant('Library.New_book');
-    this.buttonTitle = this.translate.instant('Library.Create_new_book');
+    this.buttonTitle = this.translate.instant('Create');
     this.action = this.CREATE;
   }
 

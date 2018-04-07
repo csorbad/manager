@@ -8,17 +8,32 @@
     "Author": "Author",
     "Publisher": "Publisher",
     "Info": "Info",
-    "Edit": "Edit",
-    "Delete": "Delete",
     "Series": "Series",
     "Year": "Year of publication",
     "Cover": "Cover",
     "ISBN": "ISBN",
-    "Cancel": "Cancel",
     "Edit_Book": "Edit book",
     "New_book": "New book",
-    "Save_changes": "Save changes",
-    "Create_new_book": "Create new book"
+    "Description": "Description"
   },
-  "Links": "Useful links"
+  "Links": "Useful links",
+  "Save": "Save",
+  "Create": "Create new book",
+  "Cancel": "Cancel",
+  "Delete": "Delete",
+  "Edit": "Edit",
+  "Validator": {
+    "Required": {
+      "Title": "Title is required!",
+      "Author": "Author is required!",
+      "Publisher": "Publisher is required!"
+    },
+    "Unique": {
+      "ISBN": "ISBN is already taken.",
+      "Check": "Checking for unique..."
+    },
+    "MaxLength": {
+      "Year": "Year can be max 4 characters long."
+    }
+  }
 }

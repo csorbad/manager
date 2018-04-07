@@ -10,8 +10,8 @@
     <th scope="col">{{ 'Library.Author' | translate }}</th>
     <th scope="col">{{ 'Library.Publisher' | translate }}</th>
     <th class="text-center">{{ 'Library.Info' | translate }}</th>
-    <th class="text-center">{{ 'Library.Edit' | translate }}</th>
-    <th class="text-center">{{ 'Library.Delete' | translate }}</th>
+    <th class="text-center">{{ 'Edit' | translate }}</th>
+    <th class="text-center">{{ 'Delete' | translate }}</th>
   </tr>
   </thead>
   <tbody *ngIf="books.length">
@@ -26,5 +26,5 @@
   </tr>
   </tbody>
 </table>
-<app-library-modal [bookData]="bookData" [modalTitle]="modalTitle" [buttonTitle]="buttonTitle" [action]="action" (saveBook)="createOrUpdateBook($event)"></app-library-modal>
-<app-library-info [bookData]="bookData"></app-library-info>
+<app-library-modal *ngIf="bookData" [bookData]="bookData" [modalTitle]="modalTitle" [buttonTitle]="buttonTitle" [action]="action" (saveBook)="createOrUpdateBook($event)"></app-library-modal>
+<app-library-info *ngIf="bookData" [bookData]="bookData"></app-library-info>

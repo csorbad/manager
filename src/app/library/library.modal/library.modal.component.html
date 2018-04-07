@@ -9,28 +9,97 @@
         </button>
       </div>
       <div class="modal-body">
-        <form *ngIf="bookData">
+        <form [formGroup]="libraryForm" *ngIf="bookData">
           <div class="form-row">
             <div class="form-group col">
-              <label>{{ 'Library.Title' | translate }}</label>
-              <input type="text" class="form-control" name="title" [(ngModel)]="bookData.title">
+              <label for="book-title">{{ 'Library.Title' | translate }}</label>
+              <input
+                formControlName="title"
+                id="book-title"
+                type="text"
+                class="form-control">
+              <div *ngIf="title.invalid" class="alert alert-danger" role="alert">{{ 'Validator.Required.Title' | translate }}</div>
             </div>
           </div>
           <div class="form-row">
             <div class="form-group col">
-              <label>{{ 'Library.Author' | translate }}</label>
-              <input type="text" class="form-control"  name="author" [(ngModel)]="bookData.author">
+              <label for="book-author">{{ 'Library.Author' | translate }}</label>
+              <input
+                formControlName="author"
+                required
+                id="book-author"
+                type="text"
+                class="form-control">
+              <div *ngIf="author.invalid" class="alert alert-danger" role="alert">{{ 'Validator.Required.Author' | translate }}</div>
             </div>
             <div class="form-group col">
-              <label>{{ 'Library.Publisher' | translate }}</label>
-              <input type="text" class="form-control" name="publisher" [(ngModel)]="bookData.publisher">
+              <label for="book-series">{{ 'Library.Series' | translate }}</label>
+              <input
+                formControlName="series"
+                id="book-series"
+                type="text"
+                class="form-control">
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group col">
+              <label for="book-publisher">{{ 'Library.Publisher' | translate }}</label>
+              <input
+                formControlName="publisher"
+                id="book-publisher"
+                type="text"
+                class="form-control">
+              <div *ngIf="publisher.invalid" class="alert alert-danger" role="alert">{{ 'Validator.Required.Publisher' | translate }}</div>
+            </div>
+            <div class="form-group col">
+              <label for="book-year">{{ 'Library.Year' | translate }}</label>
+              <input
+                formControlName="year"
+                id="book-year"
+                type="text"
+                class="form-control">
+              <div *ngIf="year.errors" [ngClass] = "'error'">
+                <div *ngIf="year.errors.maxlength" class="alert alert-danger" role="alert">{{ 'Validator.MaxLength.Year' | translate }}</div>
+              </div>
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group col">
+              <label for="book-cover">{{ 'Library.Cover' | translate }}</label>
+              <input
+                formControlName="cover"
+                id="book-cover"
+                type="text"
+                class="form-control">
+            </div>
+            <div class="form-group col">
+              <label for="book-isbn">{{ 'Library.ISBN' | translate }}</label>
+              <input
+                formControlName="isbn"
+                id="book-isbn"
+                type="text"
+                class="form-control">
+              <div *ngIf="isbn.pending">{{ 'Validator.Unique.Check' | translate }}</div>
+              <div *ngIf="isbn.touched && isbn.errors" [ngClass] = "'error'">
+                <div *ngIf="isbn.errors.shouldBeUnique" class="alert alert-danger" role="alert">{{ 'Validator.Unique.ISBN' | translate }}</div>
+              </div>
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group col">
+              <label for="book-description">{{ 'Library.Description' | translate }}</label>
+              <textarea
+                formControlName="description"
+                id="book-description"
+                class="form-control"
+                rows="5"></textarea>
             </div>
           </div>
         </form>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">{{ 'Library.Cancel' | translate }}</button>
-        <button type="button" class="btn btn-primary" (click)="bookActionHandler()" data-dismiss="modal">{{ buttonTitle }}</button>
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">{{ 'Cancel' | translate }}</button>
+        <button type="submit" class="btn btn-primary" [disabled]="!libraryForm.valid" (click)="bookActionHandler()" data-dismiss="modal">{{ buttonTitle }}</button>
       </div>
     </div>
   </div>

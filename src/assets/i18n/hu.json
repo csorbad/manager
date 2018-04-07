@@ -8,17 +8,32 @@
     "Author": "Szerző",
     "Publisher": "Kiadó",
     "Info": "Infó",
-    "Edit": "Szerkesztés",
-    "Delete": "Törlés",
     "Series": "Sorozat",
     "Year": "Kiadás éve",
     "Cover": "Kötés",
     "ISBN": "ISBN",
-    "Cancel": "Mégsem",
     "Edit_Book": "Könyv szerkesztése",
-    "New_book": "Új könyv",
-    "Save_changes": "Módosítások mentése",
-    "Create_new_book": "Új könyv létrehozása"
+    "New_book": "Új könyv létrehozása",
+    "Description": "Leírás"
   },
-  "Links": "Hasznos linkek"
+  "Links": "Hasznos linkek",
+  "Save": "Mentés",
+  "Create": "Létrehozás",
+  "Cancel": "Mégsem",
+  "Delete": "Törlés",
+  "Edit": "Szerkesztés",
+  "Validator": {
+    "Required": {
+      "Title": "A cím megadása kötelező!",
+      "Author": "A szerző megadása kötelező!",
+      "Publisher": "A kiadó megadása kötelező!"
+    },
+    "Unique": {
+      "ISBN": "Ez az ISBN már létezik.",
+      "Check": "Ellenőrzés..."
+    },
+    "MaxLength": {
+      "Year": "A dátum max 4 karakter hosszú lehet."
+    }
+  }
 }
