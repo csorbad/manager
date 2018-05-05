@@ -64,8 +64,6 @@ export class LibraryModalComponent implements OnInit, OnChanges {
   }
 
   bookActionHandler() {
-    if (this.title.value && this.author.value && this.publisher.value) {
-      this.saveBook.emit({book: this.bookData, action: this.action});
-    }
+    this.saveBook.emit({book: this.bookData, action: this.action});
   }
 }

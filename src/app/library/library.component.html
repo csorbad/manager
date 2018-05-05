@@ -14,7 +14,7 @@
     <th class="text-center">{{ 'Delete' | translate }}</th>
   </tr>
   </thead>
-  <tbody *ngIf="books.length">
+  <tbody *ngIf="books?.length">
   <tr *ngFor="let book of books; let idx = index">
     <td scope="row">{{ idx + 1 }}</td>
     <td>{{ book.title }}</td>

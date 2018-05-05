@@ -22,7 +22,14 @@ export class LibraryComponent implements OnInit {
   constructor(private librarySrv: LibraryService, private translate: TranslateService) { }
 
   ngOnInit() {
-    this.books = this.librarySrv.getBooks();
+    this.librarySrv.getBooksFromDb().subscribe(
+      data => {
+        this.books = data;
+      },
+      error => {
+        console.log(error);
+      }
+    );
   }
 
   openEditModal(book: Book) {
@@ -48,22 +55,39 @@ export class LibraryComponent implements OnInit {
     const bookData = event['book'];
 
     if (this.CREATE === event['action']) {
+      this.librarySrv.saveBook(bookData);
       this.books.push(bookData);
     }
 
     if (this.EDIT === event['action']) {
-      this.books.map((book) => {
-        if (book.id === bookData.id) {
-          Object.assign(book, bookData);
-        }
+      this.librarySrv.updateBook(bookData).subscribe(
+        data => {
+          console.log(data);
+          this.books.map((book) => {
+            if (book.id === bookData.id) {
+              Object.assign(book, bookData);
+            }
 
-        return book;
-      });
+            return book;
+          });
+        },
+        error => {
+          console.log(error);
+        }
+      );
     }
   }
 
   deleteBook(bookData) {
-    this.books = this.books.filter((book) => bookData.id !== book.id);
+    this.librarySrv.deleteBook(bookData.id).subscribe(
+      data => {
+        console.log(data);
+        this.books = this.books.filter((book) => bookData.id !== book.id);
+      },
+      error => {
+        console.log(error);
+      }
+    );
   }
 
   showBookInfo(book: Book) {
